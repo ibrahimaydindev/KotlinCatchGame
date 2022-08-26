@@ -19,7 +19,6 @@ class MainActivity : AppCompatActivity() {
     var handler = Handler(Looper.getMainLooper())
     var runnable = Runnable { }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -34,9 +33,7 @@ class MainActivity : AppCompatActivity() {
         imageArray.add(imageView8)
         imageArray.add(imageView9)
 
-
         hideImages()
-
 
         object : CountDownTimer(15500, 1000) {
             override fun onFinish() {
@@ -49,63 +46,45 @@ class MainActivity : AppCompatActivity() {
                     image.visibility = View.INVISIBLE
                 }
 
-
-
                 val alert = AlertDialog.Builder(this@MainActivity)
-
                 alert.setTitle("Oyun Bitti")
                 alert.setMessage("Yeniden Oyna?")
                 alert.setPositiveButton("Evet") { dialog, which ->
                     val intent = intent
                     finish()
                     startActivity(intent)
-
-
                 }
-
-                alert.setNegativeButton("No") { dialog, which ->
+                alert.setNegativeButton("Hayır") { dialog, which ->
                     Toast.makeText(this@MainActivity, "Oyun Bitti", Toast.LENGTH_LONG).show()
                 }
-
                 alert.show()
-
-
             }
 
             override fun onTick(millisUntilFinished: Long) {
                 timeText.text = "Süre: " + millisUntilFinished / 1000
             }
-
         }.start()
-
     }
 
-
     fun hideImages() {
-
         runnable = object : Runnable {
             override fun run() {
                 for (image in imageArray) {
                     image.visibility = View.INVISIBLE
                 }
-
                 val random = Random()
                 val randomIndex = random.nextInt(9)
                 imageArray[randomIndex].visibility = View.VISIBLE
 
                 handler.postDelayed(runnable, 500)
             }
-
         }
-
         handler.post(runnable)
-
     }
 
     fun increaseScore(view: View) {
         score = score + 1
         scoreText.text = "Skor: $score"
-
     }
 }
 
