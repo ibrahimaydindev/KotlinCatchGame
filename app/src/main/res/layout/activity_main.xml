@@ -5,16 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@color/teal_200">
+    android:background="@drawable/mushroomback">
 
 
     <TextView
         android:id="@+id/timeText"
         android:layout_width="152dp"
         android:layout_height="0dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="1dp"
         android:gravity="center"
         android:text="Time: 15"
+        android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/scoreText"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,12 +27,15 @@
         android:id="@+id/scoreText"
         android:layout_width="152dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="22dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="66dp"
         android:gravity="center"
-        android:text="Score: 0"
-        android:textSize="18sp"
+        android:text="Skor: 0"
+        android:textColor="@color/black"
+        android:textSize="22sp"
         app:layout_constraintBottom_toTopOf="@+id/gridLayout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/timeText" />
 
