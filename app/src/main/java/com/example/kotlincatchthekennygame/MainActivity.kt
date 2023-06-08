@@ -8,6 +8,7 @@ import android.bluetooth.le.ScanResult
 import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.*
@@ -34,6 +35,7 @@ private const val RUNTIME_PERMISSION_REQUEST_CODE = 2
 
 class MainActivity : AppCompatActivity() {
     private val handler = Handler(Looper.getMainLooper())
+
     private var isRunning = false
     var score = 0
     var imageArray = ArrayList<ImageView>()
@@ -129,6 +131,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         supportActionBar?.hide()
+
         imageArray.add(imageView)
         imageArray.add(imageView2)
         imageArray.add(imageView3)
@@ -139,7 +142,6 @@ class MainActivity : AppCompatActivity() {
         imageArray.add(imageView8)
         imageArray.add(imageView9)
         hideImages()
-
         startBleScan()
 
         object : CountDownTimer(600000, 1000) {
@@ -171,7 +173,7 @@ class MainActivity : AppCompatActivity() {
         }.start()
     }
 
-    fun increaseScore(view: View) {
+    fun increaseScore() {
         score += 1
         scoreText.text = "Skor: $score"
     }
@@ -328,8 +330,7 @@ class MainActivity : AppCompatActivity() {
             AlertDialog.Builder(this)
                 .setTitle("Lokasyon İzni Gerekli")
                 .setMessage(
-                    "Starting from Android M (6.0), the system requires apps to be granted " +
-                            "location access in order to scan for BLE devices."
+                    "Oyunu Başlatmanız İçin Lokasyon İzni Gerekiyor."
                 )
                 .setCancelable(false)
                 .setPositiveButton(android.R.string.ok) { _, _ ->
@@ -349,8 +350,7 @@ class MainActivity : AppCompatActivity() {
             AlertDialog.Builder(this)
                 .setTitle("Bluetooth İzni Gerekli")
                 .setMessage(
-                    "Starting from Android S (12.0), the system requires apps to be granted " +
-                            "Bluetooth permissions in order to scan for BLE devices."
+                    "Oyunu Başlatmanız İçin Bluetooth açmanız gerekiyor."
                 )
                 .setCancelable(false)
                 .setPositiveButton(android.R.string.ok) { _, _ ->
@@ -436,10 +436,13 @@ class MainActivity : AppCompatActivity() {
         runOnUiThread {
             if (text == "1") {
                 hareket("1")
+                increaseScore()
             } else if (text == "2") {
                 hareket("2")
+                increaseScore()
             } else if (text == "3") {
                 hareket("3")
+                increaseScore()
             }
 
         }
