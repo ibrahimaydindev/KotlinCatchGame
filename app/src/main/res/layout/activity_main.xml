@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@drawable/mushroomback">
+    android:background="@drawable/mushroomback"
+    tools:context=".MainActivity">
 
 
     <TextView
@@ -13,12 +13,12 @@
         android:layout_width="152dp"
         android:layout_height="0dp"
         android:layout_marginTop="2dp"
-        android:layout_marginBottom="1dp"
+        android:layout_marginBottom="48dp"
         android:gravity="center"
         android:text="Time: 15"
         android:textColor="@color/black"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/scoreText"
+        app:layout_constraintBottom_toTopOf="@+id/bas"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -57,7 +57,7 @@
             android:layout_row="0"
             android:layout_column="0"
             android:onClick="increaseScore"
-            app:srcCompat="@drawable/mushroom" />
+            app:srcCompat="@drawable/img_2" />
 
         <ImageView
             android:id="@+id/imageView2"
@@ -66,7 +66,7 @@
             android:layout_row="0"
             android:layout_column="1"
             android:onClick="increaseScore"
-            app:srcCompat="@drawable/mushroom" />
+            app:srcCompat="@drawable/img_2" />
 
         <ImageView
             android:id="@+id/imageView3"
@@ -75,7 +75,7 @@
             android:layout_row="0"
             android:layout_column="2"
             android:onClick="increaseScore"
-            app:srcCompat="@drawable/mushroom" />
+            app:srcCompat="@drawable/door" />
 
         <ImageView
             android:id="@+id/imageView4"
@@ -84,7 +84,7 @@
             android:layout_row="1"
             android:layout_column="0"
             android:onClick="increaseScore"
-            app:srcCompat="@drawable/mushroom" />
+            app:srcCompat="@drawable/img_2" />
 
         <ImageView
             android:id="@+id/imageView5"
@@ -93,7 +93,7 @@
             android:layout_row="1"
             android:layout_column="1"
             android:onClick="increaseScore"
-            app:srcCompat="@drawable/mushroom" />
+            app:srcCompat="@drawable/img_2" />
 
         <ImageView
             android:id="@+id/imageView6"
@@ -102,7 +102,7 @@
             android:layout_row="1"
             android:layout_column="2"
             android:onClick="increaseScore"
-            app:srcCompat="@drawable/mushroom" />
+            app:srcCompat="@drawable/img_2" />
 
         <ImageView
             android:id="@+id/imageView7"
@@ -111,7 +111,7 @@
             android:layout_row="2"
             android:layout_column="0"
             android:onClick="increaseScore"
-            app:srcCompat="@drawable/mushroom" />
+            app:srcCompat="@drawable/img_2" />
 
         <ImageView
             android:id="@+id/imageView8"
@@ -120,7 +120,7 @@
             android:layout_row="2"
             android:layout_column="1"
             android:onClick="increaseScore"
-            app:srcCompat="@drawable/mushroom" />
+            app:srcCompat="@drawable/img_2" />
 
         <ImageView
             android:id="@+id/imageView9"
@@ -129,8 +129,19 @@
             android:layout_row="2"
             android:layout_column="2"
             android:onClick="increaseScore"
-            app:srcCompat="@drawable/mushroom" />
+            app:srcCompat="@drawable/img_2" />
     </GridLayout>
+
+
+    <Button
+        android:id="@+id/start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="bASLA"
+        app:layout_constraintBottom_toTopOf="@+id/gridLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scoreText" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
